@@ -1,8 +1,10 @@
 ---
 import { t } from '../i18n';
+import { url } from '../lib/url';
 
 const dict = t();
 const segments = dict.hero.titleSegments;
+const bgUrl = url('/images/background.jpg');
 ---
 
 <section
@@ -11,7 +13,7 @@ const segments = dict.hero.titleSegments;
 >
   <div
     class="absolute inset-0 -z-10 bg-black"
-    style="background-image: url('/images/background.jpg'); background-size: cover; background-position: center;"
+    style={`background-image: url('${bgUrl}'); background-size: cover; background-position: center;`}
   >
   </div>
   <div

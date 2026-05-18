@@ -1,5 +1,6 @@
 ---
 import { t } from '../i18n';
+import { url } from '../lib/url';
 
 const dict = t();
 ---
@@ -12,11 +13,11 @@ const dict = t();
     class="pointer-events-auto flex items-center gap-1 md:gap-3 pl-2 pr-3 md:pr-5 py-1.5 md:py-2 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-white shadow-2xl"
   >
     <a
-      href="/"
+      href={url('/')}
       class="flex items-center gap-2 pl-2 pr-3 md:pl-3 md:pr-4 py-1 rounded-full hover:bg-white/5 transition-colors"
       aria-label="LD"
     >
-      <img src="/images/logo-white.png" alt="LD" class="h-8 md:h-10 w-auto" />
+      <img src={url('/images/logo-white.png')} alt="LD" class="h-8 md:h-10 w-auto" />
     </a>
 
     <div class="hidden md:flex items-center gap-1 text-sm text-white/80">

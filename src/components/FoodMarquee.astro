@@ -1,11 +1,13 @@
 ---
+import { url } from '../lib/url';
+
 const photos = [
-  '/images/canapes.jpg',
-  '/images/sable-mousse.jpg',
-  '/images/humus.jpg',
-  '/images/event-table.jpg',
-  '/images/wine.jpg',
-  '/images/verines.png',
+  url('/images/canapes.jpg'),
+  url('/images/sable-mousse.jpg'),
+  url('/images/humus.jpg'),
+  url('/images/event-table.jpg'),
+  url('/images/wine.jpg'),
+  url('/images/verines.png'),
 ];
 
 const loop = [...photos, ...photos];

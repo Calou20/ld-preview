@@ -1,14 +1,15 @@
 ---
 import { t } from '../i18n';
+import { url } from '../lib/url';
 
 const dict = t();
 const bar = dict.bar;
 
 const visuals = [
-  { src: '/images/dju/frisson.png', seasonal: false, glow: '#e8b53d' },
-  { src: '/images/dju/evidence.png', seasonal: false, glow: '#b53d6f' },
-  { src: '/images/dju/eveil.png', seasonal: false, glow: '#d97a3d' },
-  { src: '/images/dju/audacieux.png', seasonal: true, glow: '#c43b2c' },
+  { src: url('/images/dju/frisson.png'), seasonal: false, glow: '#e8b53d' },
+  { src: url('/images/dju/evidence.png'), seasonal: false, glow: '#b53d6f' },
+  { src: url('/images/dju/eveil.png'), seasonal: false, glow: '#d97a3d' },
+  { src: url('/images/dju/audacieux.png'), seasonal: true, glow: '#c43b2c' },
 ];
 
 const drinks = bar.drinks.map((d, i) => ({
@@ -53,7 +54,7 @@ const drinks = bar.drinks.map((d, i) => ({
       <div class="lg:col-span-6">
         <div class="rounded-3xl overflow-hidden border border-white/10">
           <img
-            src="/images/wine-glasses.png"
+            src={url('/images/wine-glasses.png')}
             alt=""
             loading="lazy"
             class="w-full h-64 md:h-80 lg:h-96 object-cover"
@@ -67,7 +68,7 @@ const drinks = bar.drinks.map((d, i) => ({
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div class="lg:col-span-5 flex justify-center lg:justify-start order-1">
           <img
-            src="/images/logoDJU.png"
+            src={url('/images/logoDJU.png')}
             alt="DJU"
             loading="lazy"
             class="w-48 md:w-64 lg:w-72 h-auto object-contain"

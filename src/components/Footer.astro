@@ -1,5 +1,6 @@
 ---
 import { t } from '../i18n';
+import { url } from '../lib/url';
 
 const dict = t();
 const year = new Date().getFullYear();
@@ -59,7 +60,7 @@ const year = new Date().getFullYear();
     >
       <p>© {year} LD. {dict.footer.rights}</p>
       <a
-        href="/mentions-legales"
+        href={url('/mentions-legales')}
         class="hover:text-white transition-colors"
       >
         {dict.footer.legal}
@@ -73,13 +74,13 @@ const year = new Date().getFullYear();
       style="--mx: 50%; --my: 50%;"
     >
       <img
-        src="/images/logo-white.png"
+        src={url('/images/logo-white.png')}
         alt="LD"
         class="absolute inset-0 w-full h-full object-contain opacity-20 transition-opacity duration-500 group-hover:opacity-30"
         draggable="false"
       />
       <img
-        src="/images/logo-white.png"
+        src={url('/images/logo-white.png')}
         alt=""
         aria-hidden="true"
         class="logo-shine-reveal absolute inset-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"

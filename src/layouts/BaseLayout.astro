@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { t } from '../i18n';
+import { url } from '../lib/url';
 import Preloader from '../components/Preloader.astro';
 import SmoothScroll from '../components/SmoothScroll.astro';
 import NavPill from '../components/NavPill.astro';
@@ -23,13 +24,13 @@ const description = pageDescription ?? dict.meta.description;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/logo-black.png" />
+    <meta property="og:image" content={url('/images/logo-black.png')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

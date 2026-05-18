@@ -21,8 +21,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Remove CNAME for preview env
+        if: github.repository == 'Calou20/ld-preview'
+        run: rm -f public/CNAME
+
       - name: Build site
         uses: withastro/action@v3
+        env:
+          PREVIEW: ${{ github.repository == 'Calou20/ld-preview' && 'true' || 'false' }}
         with:
           node-version: 20
           package-manager: npm

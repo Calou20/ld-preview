@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
 import { t } from '../i18n';
+import { url } from '../lib/url';
 
 const dict = t();
 ---
@@ -12,7 +13,7 @@ const dict = t();
     <p class="text-[var(--color-muted)] leading-relaxed mb-12 whitespace-pre-line">
       {dict.legal.body}
     </p>
-    <a href="/" class="inline-block text-sm uppercase tracking-wider border-b border-current pb-1 hover:text-[var(--color-accent)]">
+    <a href={url('/')} class="inline-block text-sm uppercase tracking-wider border-b border-current pb-1 hover:text-[var(--color-accent)]">
       ← {dict.legal.back}
     </a>
   </article>

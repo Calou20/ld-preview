@@ -1,5 +1,6 @@
 ---
 import { t } from '../i18n';
+import { url } from '../lib/url';
 
 const dict = t();
 ---
@@ -11,7 +12,7 @@ const dict = t();
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
       <div>
         <div class="aspect-square max-w-sm md:max-w-none mx-auto md:mx-0 bg-black/5 border border-black/10 mb-6 flex items-center justify-center overflow-hidden rounded-sm relative group">
-          <img src="/images/chef.png" alt="Chef Portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+          <img src={url('/images/chef.png')} alt="Chef Portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
           <div class="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors duration-1000"></div>
         </div>
         <h3 class="font-serif text-2xl md:text-3xl font-medium mb-4">{dict.about.chef.title}</h3>
@@ -21,7 +22,7 @@ const dict = t();
       <div class="md:pt-12">
         <div class="aspect-square max-w-sm md:max-w-none mx-auto md:mx-0 bg-black/5 border border-black/10 mb-6 flex items-center justify-center overflow-hidden rounded-sm relative group">
           <img
-            src="/images/verines.png"
+            src={url('/images/verines.png')}
             alt="Méthode — service à la table"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
           />
