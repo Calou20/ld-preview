@@ -27,7 +27,7 @@ const dict = t();
       <a href="#contact" class="px-3 py-2 rounded-full hover:bg-white/15 hover:text-white transition-all duration-200">{dict.nav.contact}</a>
     </div>
 
-    <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center gap-1.5 px-3 py-2 text-white/80 hover:text-white transition-colors aria-label='Toggle menu'">
+    <button id="mobile-menu-btn" type="button" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden flex flex-col justify-center gap-1.5 px-3 py-2 text-white/80 hover:text-white transition-colors">
       <span class="w-5 h-px bg-current transition-transform origin-center"></span>
       <span class="w-5 h-px bg-current transition-transform origin-center"></span>
     </button>
@@ -111,6 +111,7 @@ const dict = t();
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
     const spans = mobileBtn?.querySelectorAll('span');
+    mobileBtn?.setAttribute('aria-expanded', String(isMenuOpen));
 
     if (isMenuOpen) {
       mobileMenu?.classList.remove('hidden');

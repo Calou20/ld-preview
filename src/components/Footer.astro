@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
       <div class="md:col-span-5">
         <p
-          class="text-xs uppercase tracking-[0.3em] text-white/40 mb-4"
+          class="text-xs uppercase tracking-[0.3em] text-white/60 mb-4"
         >
           {dict.footer.contactLabel}
         </p>
@@ -27,7 +27,7 @@ const year = new Date().getFullYear();
         >
           {dict.contact.emailValue}
         </a>
-        <p class="mt-6 text-sm text-white/50 leading-relaxed">
+        <p class="mt-6 text-sm text-white/65 leading-relaxed">
           {dict.contact.addressLines.map((line, i) => (
             <>{line}{i < dict.contact.addressLines.length - 1 && <br />}</>
           ))}
@@ -35,7 +35,7 @@ const year = new Date().getFullYear();
       </div>
 
       <nav class="md:col-span-3" aria-label="Footer">
-        <p class="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">{dict.footer.navLabel}</p>
+        <p class="text-xs uppercase tracking-[0.3em] text-white/60 mb-4">{dict.footer.navLabel}</p>
         <ul class="space-y-2 text-white/70">
           <li><a href="#services" class="hover:text-white transition-colors">{dict.nav.services}</a></li>
           <li><a href="#approach" class="hover:text-white transition-colors">{dict.nav.approach}</a></li>
@@ -45,18 +45,18 @@ const year = new Date().getFullYear();
       </nav>
 
       <div class="md:col-span-4">
-        <p class="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">{dict.footer.langLabel}</p>
+        <p class="text-xs uppercase tracking-[0.3em] text-white/60 mb-4">{dict.footer.langLabel}</p>
         <div class="flex gap-3 text-sm">
           <span class="px-4 py-1.5 rounded-full border border-white bg-white text-black">FR</span>
         </div>
-        <p class="mt-8 text-sm text-white/50 leading-relaxed">
+        <p class="mt-8 text-sm text-white/65 leading-relaxed">
           {dict.footer.tagline}
         </p>
       </div>
     </div>
 
     <div
-      class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-white/40"
+      class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-white/60"
     >
       <p>© {year} LD. {dict.footer.rights}</p>
       <a
@@ -76,6 +76,8 @@ const year = new Date().getFullYear();
       <img
         src={url('/images/logo-white.webp')}
         alt="LD"
+        loading="lazy"
+        decoding="async"
         class="absolute inset-0 w-full h-full object-contain opacity-20 transition-opacity duration-500 group-hover:opacity-30"
         draggable="false"
       />
@@ -83,6 +85,8 @@ const year = new Date().getFullYear();
         src={url('/images/logo-white.webp')}
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
         class="logo-shine-reveal absolute inset-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         draggable="false"
       />
