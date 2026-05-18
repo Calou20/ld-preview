@@ -25,12 +25,13 @@ const description = pageDescription ?? dict.meta.description;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="preload" as="image" href={url('/images/background.webp')} fetchpriority="high" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={url('/images/logo-black.png')} />
+    <meta property="og:image" content={url('/images/logo-black.webp')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
