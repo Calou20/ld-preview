@@ -32,7 +32,11 @@
       const target = document.querySelector(id);
       if (target) {
         e.preventDefault();
-        lenis.scrollTo(target as HTMLElement, { offset: -20 });
+        const smt = parseInt(
+          window.getComputedStyle(target as Element).scrollMarginTop,
+        ) || 0;
+        const offset = smt > 0 ? -smt : -20;
+        lenis.scrollTo(target as HTMLElement, { offset });
       }
     });
   });
