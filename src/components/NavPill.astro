@@ -57,11 +57,12 @@ const dict = t();
     }
 
     let lastY = window.scrollY;
+    let previousY = -1;
     let hidden = false;
-    const threshold = 8;
+    const threshold = 4;
     const hero = document.getElementById('hero');
 
-    const onScroll = () => {
+    const handle = () => {
       const y = Math.max(0, window.scrollY);
       const heroBottom = hero ? hero.offsetHeight : window.innerHeight;
 
@@ -91,7 +92,15 @@ const dict = t();
       }
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    const tick = () => {
+      const y = window.scrollY;
+      if (y !== previousY) {
+        handle();
+        previousY = y;
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
 
   const mobileBtn = document.getElementById('mobile-menu-btn');

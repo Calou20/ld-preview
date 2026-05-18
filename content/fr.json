@@ -42,7 +42,7 @@
     "eyebrow": "Service Bar",
     "title": "Un bar à votre image",
     "intro": "Vins, softs, cocktails sans alcool, sommelier ou self-service. Nous composons le bar qui colle à l'esprit de votre événement, selon le format et le rythme souhaités.",
-    "signatureEyebrow": "Option signature · En partenariat avec DJU",
+    "signatureEyebrow": ["Option signature ·", "En partenariat avec DJU"],
     "signatureTitle": "Gorgées créatives, mini cocktails du terroir",
     "signatureIntro": [
       { "text": "Pour une touche distinctive, DJU, " },
