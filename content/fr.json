@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "LD · Traiteur événementiel · Genève",
+    "description": "Service traiteur événementiel à Genève. Cuisine du monde, fusion créative pour vos événements d'entreprise de 50 à 300 personnes."
+  },
+  "nav": {
+    "services": "Prestations",
+    "bar": "Bar",
+    "approach": "Approche",
+    "contact": "Contact"
+  },
+  "hero": {
+    "titleSegments": [
+      { "text": "VOTRE ÉVÉNEMENT, " },
+      { "text": "NOTRE CUISINE", "highlight": true }
+    ],
+    "subtitle": "De 50 à 300 invités, sur votre lieu.",
+    "ctaPrimary": "Demander un devis",
+    "ctaSecondary": "L'approche"
+  },
+  "services": {
+    "title": "Trois formats, sur mesure",
+    "intro": "Chaque événement a son rythme. Trois cadres clairs pour démarrer, un menu composé spécialement pour vous.",
+    "items": [
+      {
+        "title": "Entreprise",
+        "description": "Séminaires, lancements, cocktails clients, inaugurations. Buffet généreux ou service à l'assiette ; le format suit votre intention."
+      },
+      {
+        "title": "Réceptions privées",
+        "description": "Anniversaires, mariages, célébrations en cercle élargi. Une cuisine chaleureuse, un service attentif, l'esprit d'une grande tablée."
+      },
+      {
+        "title": "Institutionnel & associatif",
+        "description": "Maisons de quartier, associations, collectivités. Format souple, budget maîtrisé, qualité tenue d'un événement à l'autre."
+      }
+    ],
+    "noteTitle": "Service sur votre lieu",
+    "note": "Vous choisissez le lieu, nous orchestrons le reste pour une prestation impeccable et marquante."
+  },
+  "bar": {
+    "eyebrow": "Service Bar",
+    "title": "Un bar à votre image",
+    "intro": "Vins, softs, cocktails sans alcool, sommelier ou self-service. Nous composons le bar qui colle à l'esprit de votre événement, selon le format et le rythme souhaités.",
+    "signatureEyebrow": "Option signature · En partenariat avec DJU",
+    "signatureTitle": "Gorgées créatives, mini cocktails du terroir",
+    "signatureIntro": [
+      { "text": "Pour une touche distinctive, DJU, " },
+      { "text": "atelier genevois", "highlight": true },
+      { "text": ", propose des gorgées entre shot et cocktail, pensées pour circuler en mains. À ajouter à votre bar si l'envie est là." }
+    ],
+    "drinks": [
+      { "name": "Le Frisson", "ingredients": "Gingembre · Pomme · Romarin · Gin" },
+      { "name": "L'Évidence", "ingredients": "Framboise · Raisin · Sureau · Menthe · Vodka" },
+      { "name": "L'Éveil", "ingredients": "Mirabelle · Poire · Verveine · Rhum" },
+      { "name": "L'Audacieux", "ingredients": "Abricot · Miel · Basilic · Whisky" }
+    ],
+    "seasonalLabel": "Saisonnier",
+    "djuCta": "Découvrir DJU",
+    "djuCtaHref": "https://dju.world/"
+  },
+  "approach": {
+    "title": "Approche culinaire",
+    "intro": "Une cuisine de fusion mondiale, sans frontières, qui s'écrit avec vous.",
+    "points": [
+      {
+        "title": "Brief et écoute",
+        "description": "Avant chaque événement, un échange pour comprendre le contexte, les invités, les contraintes alimentaires et l'ambiance souhaitée."
+      },
+      {
+        "title": "Menu sur mesure",
+        "description": "Aucune carte figée : chaque proposition est composée pour vous, en fonction de la saison et de votre brief."
+      },
+      {
+        "title": "Logistique soignée",
+        "description": "Préparation, transport, installation, service, débarras. Une exécution discrète, du début à la fin de votre événement."
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "chef": {
+      "title": "Le chef",
+      "body": "Luca, d'origine italienne, arrivé en Suisse en 2012, a forgé son expérience en cuisine dès 2020, lors d'une traversée en mer. Aujourd'hui à Genève, il s'ajuste à chaque demande, offrant des propositions sur mesure, centrées sur l'essentiel."
+    },
+    "method": {
+      "title": "La méthode",
+      "body": "Du premier échange à la fin de l'événement, un seul interlocuteur. Un devis clair, un menu personnalisé, une prestation soignée, sans intermédiaire."
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "VOUS AVEZ ENCORE DES QUESTIONS ?",
+    "subtitle": "Tout ce qui vous retient de nous appeler.",
+    "items": [
+      {
+        "q": "Combien de temps à l'avance faut-il réserver ?",
+        "a": "Idéalement 3 à 6 semaines pour les événements de plus de 80 personnes. Pour les formats plus petits ou en dernière minute, on essaie toujours de trouver une solution. N'hésitez pas à demander."
+      },
+      {
+        "q": "Pouvez-vous adapter le menu aux régimes alimentaires ?",
+        "a": "Oui, systématiquement. Végétarien, végan, sans gluten, sans porc, allergies : indiquez les contraintes au brief, on construit le menu autour. C'est inclus dans la prestation."
+      },
+      {
+        "q": "Le service est-il assuré sur place ?",
+        "a": "Oui. L'équipe se déplace sur votre lieu, monte, sert et débarrasse. Vous n'avez à gérer ni la logistique ni le rangement après l'événement."
+      },
+      {
+        "q": "Et le matériel — vaisselle, verres, mobilier ?",
+        "a": "Vaisselle et plats de service sont fournis. Pour la verrerie, le mobilier ou la location de tentes, on travaille avec des partenaires de confiance et on coordonne le tout pour vous."
+      },
+      {
+        "q": "Comment se passe le devis ?",
+        "a": "Un échange (téléphone ou en personne) pour comprendre le contexte, puis un devis personnalisé sous 48h. Pas de surprise : tout est détaillé ligne par ligne."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Parlons de votre événement",
+    "intro": "Une date, un nombre d'invités, un lieu, une envie : envoyez-nous les grandes lignes, nous revenons avec une proposition sous 48h.",
+    "phoneLabel": "Téléphone",
+    "phoneValue": "+41 78 619 78 22",
+    "phoneHref": "tel:+41786197822",
+    "whatsappLabel": "WhatsApp",
+    "whatsappHref": "https://wa.me/41786197822",
+    "emailLabel": "Email",
+    "emailValue": "info@lucadauphin.ch",
+    "emailHref": "mailto:info@lucadauphin.ch",
+    "addressLines": ["Chemin de Champ-Claude 10", "1214 Vernier"],
+    "quoteNote": "Devis sur demande · Réponse sous 48h"
+  },
+  "footer": {
+    "tagline": "Traiteur événementiel · Genève",
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "langLabel": "Langue",
+    "contactLabel": "Contact",
+    "navLabel": "Navigation"
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "body": "Raison sociale : LD Traiteur\nSiège : Chemin de Champ-Claude 10, 1214 Vernier, Suisse\nResponsable de publication : Luca Dauphin\nContact : info@lucadauphin.ch\nHébergement : Infomaniak (Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Genève, Suisse)\n\nDonnées personnelles : seules les données transmises volontairement via les liens de contact (email, téléphone, WhatsApp) sont collectées. Elles ne sont ni revendues ni partagées. Pour toute demande d'accès, de rectification ou de suppression, écrire à info@lucadauphin.ch.\n\nCe site est conforme à la Loi fédérale suisse sur la protection des données (nLPD).",
+    "back": "Retour à l'accueil"
+  }
+}

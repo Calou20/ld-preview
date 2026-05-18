@@ -1,0 +1,91 @@
+---
+import { t } from '../i18n';
+
+const dict = t();
+---
+
+<section id="faq" class="bg-[var(--color-cream)] text-black py-24 md:py-36 overflow-hidden relative">
+  <div class="container-page">
+    <div class="text-center mb-14 md:mb-20">
+      <p
+        class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[var(--color-muted)] px-4 py-2 rounded-full border border-black/15 mb-8"
+      >
+        <span
+          class="inline-block w-1.5 h-1.5 rounded-full"
+          style="background: var(--color-accent);"></span>
+        {dict.faq.eyebrow}
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] uppercase max-w-4xl mx-auto"
+      >
+        {dict.faq.title}
+      </h2>
+      <p class="mt-6 text-[var(--color-muted)]">{dict.faq.subtitle}</p>
+    </div>
+
+    <ul
+      class="max-w-3xl mx-auto rounded-3xl border-2 divide-y divide-black/10 overflow-hidden bg-white"
+      style="border-color: var(--color-accent);"
+    >
+      {
+        dict.faq.items.map((item, i) => (
+          <li class="faq-item">
+            <button
+              type="button"
+              class="faq-trigger group w-full flex items-center justify-between gap-6 text-left px-6 md:px-8 py-5 md:py-6 hover:bg-black/5 transition-colors"
+              aria-expanded="false"
+              aria-controls={`faq-panel-${i}`}
+            >
+              <span class="font-serif text-lg md:text-xl font-light pr-4 group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                {item.q}
+              </span>
+              <span
+                class="faq-icon shrink-0 w-9 h-9 rounded-full border border-black/30 flex items-center justify-center text-xl leading-none transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)] group-hover:scale-110"
+              >
+                +
+              </span>
+            </button>
+            <div
+              id={`faq-panel-${i}`}
+              class="faq-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out"
+            >
+              <div class="overflow-hidden">
+                <p class="px-6 md:px-8 pb-6 md:pb-8 text-[var(--color-muted)] leading-relaxed max-w-2xl">
+                  {item.a}
+                </p>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>('.faq-item');
+  items.forEach((item) => {
+    const trigger = item.querySelector<HTMLButtonElement>('.faq-trigger');
+    const panel = item.querySelector<HTMLElement>('.faq-panel');
+    const icon = item.querySelector<HTMLElement>('.faq-icon');
+    if (!trigger || !panel || !icon) return;
+    trigger.addEventListener('click', () => {
+      const open = trigger.getAttribute('aria-expanded') === 'true';
+      items.forEach((other) => {
+        const t = other.querySelector<HTMLButtonElement>('.faq-trigger');
+        const p = other.querySelector<HTMLElement>('.faq-panel');
+        const ic = other.querySelector<HTMLElement>('.faq-icon');
+        if (!t || !p || !ic) return;
+        t.setAttribute('aria-expanded', 'false');
+        p.style.gridTemplateRows = '0fr';
+        ic.style.transform = 'rotate(0deg)';
+        ic.textContent = '+';
+      });
+      if (!open) {
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.style.gridTemplateRows = '1fr';
+        icon.style.transform = 'rotate(45deg)';
+      }
+    });
+  });
+</script>

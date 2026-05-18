@@ -1,0 +1,106 @@
+---
+const photos = [
+  '/images/canapes.jpg',
+  '/images/sable-mousse.jpg',
+  '/images/humus.jpg',
+  '/images/event-table.jpg',
+  '/images/wine.jpg',
+  '/images/verines.png',
+];
+
+const loop = [...photos, ...photos];
+---
+
+<section class="food-marquee" aria-hidden="true">
+  <div class="food-marquee__track">
+    {
+      loop.map((src) => (
+        <div class="food-marquee__item">
+          <img src={src} alt="" loading="lazy" />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .food-marquee {
+    overflow: hidden;
+    background: var(--color-cream);
+    padding: 1.5rem 0;
+    position: relative;
+  }
+
+  .food-marquee::before,
+  .food-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .food-marquee::before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      var(--color-cream),
+      transparent
+    );
+  }
+
+  .food-marquee::after {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      var(--color-cream),
+      transparent
+    );
+  }
+
+  .food-marquee__track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: food-marquee-scroll 40s linear infinite;
+  }
+
+  .food-marquee__item {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .food-marquee__item {
+      width: 280px;
+      height: 180px;
+    }
+  }
+
+  .food-marquee__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @keyframes food-marquee-scroll {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .food-marquee__track {
+      animation: none;
+    }
+  }
+</style>

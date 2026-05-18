@@ -1,0 +1,35 @@
+---
+import { t } from '../i18n';
+
+const dict = t();
+---
+
+<section id="about" class="section bg-[var(--color-cream)] text-black">
+  <div class="container-page">
+    <h2 class="font-serif text-4xl md:text-5xl font-light mb-16">{dict.about.title}</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+      <div>
+        <div class="aspect-square max-w-sm md:max-w-none mx-auto md:mx-0 bg-black/5 border border-black/10 mb-6 flex items-center justify-center overflow-hidden rounded-sm relative group">
+          <img src="/images/chef.png" alt="Chef Portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+          <div class="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors duration-1000"></div>
+        </div>
+        <h3 class="font-serif text-2xl md:text-3xl font-medium mb-4">{dict.about.chef.title}</h3>
+        <p class="text-[var(--color-muted)] leading-relaxed">{dict.about.chef.body}</p>
+      </div>
+
+      <div class="md:pt-12">
+        <div class="aspect-square max-w-sm md:max-w-none mx-auto md:mx-0 bg-black/5 border border-black/10 mb-6 flex items-center justify-center overflow-hidden rounded-sm relative group">
+          <img
+            src="/images/verines.png"
+            alt="Méthode — service à la table"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+          />
+          <div class="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors duration-1000"></div>
+        </div>
+        <h3 class="font-serif text-2xl md:text-3xl font-medium mb-4">{dict.about.method.title}</h3>
+        <p class="text-[var(--color-muted)] leading-relaxed">{dict.about.method.body}</p>
+      </div>
+    </div>
+  </div>
+</section>

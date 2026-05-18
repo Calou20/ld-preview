@@ -1,0 +1,124 @@
+---
+import { t } from '../i18n';
+
+const dict = t();
+const year = new Date().getFullYear();
+---
+
+<footer class="relative bg-black text-white overflow-hidden">
+  <div class="container-page pt-20 md:pt-28 pb-10 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+      <div class="md:col-span-5">
+        <p
+          class="text-xs uppercase tracking-[0.3em] text-white/40 mb-4"
+        >
+          {dict.footer.contactLabel}
+        </p>
+        <a
+          href={dict.contact.phoneHref}
+          class="block font-serif text-2xl md:text-3xl font-light hover:text-[var(--color-accent)] transition-colors mb-2"
+        >
+          {dict.contact.phoneValue}
+        </a>
+        <a
+          href={dict.contact.emailHref}
+          class="block font-serif text-xl md:text-2xl font-light text-white/80 hover:text-[var(--color-accent)] transition-colors break-all"
+        >
+          {dict.contact.emailValue}
+        </a>
+        <p class="mt-6 text-sm text-white/50 leading-relaxed">
+          {dict.contact.addressLines.map((line, i) => (
+            <>{line}{i < dict.contact.addressLines.length - 1 && <br />}</>
+          ))}
+        </p>
+      </div>
+
+      <nav class="md:col-span-3" aria-label="Footer">
+        <p class="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">{dict.footer.navLabel}</p>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#services" class="hover:text-white transition-colors">{dict.nav.services}</a></li>
+          <li><a href="#approach" class="hover:text-white transition-colors">{dict.nav.approach}</a></li>
+          <li><a href="#bar" class="hover:text-white transition-colors">{dict.nav.bar}</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="md:col-span-4">
+        <p class="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">{dict.footer.langLabel}</p>
+        <div class="flex gap-3 text-sm">
+          <span class="px-4 py-1.5 rounded-full border border-white bg-white text-black">FR</span>
+        </div>
+        <p class="mt-8 text-sm text-white/50 leading-relaxed">
+          {dict.footer.tagline}
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-white/40"
+    >
+      <p>© {year} LD. {dict.footer.rights}</p>
+      <a
+        href="/mentions-legales"
+        class="hover:text-white transition-colors"
+      >
+        {dict.footer.legal}
+      </a>
+    </div>
+  </div>
+
+  <div class="relative h-[26vw] md:h-[28vw] overflow-hidden select-none flex items-end justify-center">
+    <div
+      class="logo-shine group relative h-full aspect-square"
+      style="--mx: 50%; --my: 50%;"
+    >
+      <img
+        src="/images/logo-white.png"
+        alt="LD"
+        class="absolute inset-0 w-full h-full object-contain opacity-20 transition-opacity duration-500 group-hover:opacity-30"
+        draggable="false"
+      />
+      <img
+        src="/images/logo-white.png"
+        alt=""
+        aria-hidden="true"
+        class="logo-shine-reveal absolute inset-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        draggable="false"
+      />
+    </div>
+  </div>
+</footer>
+
+<style>
+  .logo-shine-reveal {
+    -webkit-mask-image: radial-gradient(circle 22% at var(--mx) var(--my), #000 0%, rgba(0, 0, 0, 0.4) 35%, transparent 65%);
+    mask-image: radial-gradient(circle 22% at var(--mx) var(--my), #000 0%, rgba(0, 0, 0, 0.4) 35%, transparent 65%);
+    filter: drop-shadow(0 0 30px rgba(201, 163, 106, 0.45));
+    will-change: mask-image;
+  }
+</style>
+
+<script>
+  function initLogoShine() {
+    const nodes = document.querySelectorAll<HTMLElement>('.logo-shine');
+    nodes.forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+        el.style.setProperty('--mx', x + '%');
+        el.style.setProperty('--my', y + '%');
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.setProperty('--mx', '50%');
+        el.style.setProperty('--my', '50%');
+      });
+    });
+  }
+
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initLogoShine();
+  } else {
+    window.addEventListener('DOMContentLoaded', initLogoShine, { once: true });
+  }
+</script>

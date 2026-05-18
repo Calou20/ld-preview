@@ -1,0 +1,72 @@
+---
+import { t } from '../i18n';
+
+const dict = t();
+---
+
+<section id="approach" class="bg-[var(--color-cream)] text-black relative section">
+  <div class="container-page">
+    <div class="max-w-5xl mb-12 md:mb-16">
+      <p class="text-xs md:text-sm uppercase tracking-[0.3em] text-[var(--color-muted)] mb-4">
+        {dict.approach.title}
+      </p>
+      <h2
+        class="font-serif text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] uppercase"
+      >
+        {dict.approach.intro}
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+      {
+        dict.approach.points.map((point, i) => (
+          <article class="approach-card relative bg-black text-white rounded-3xl p-7 md:p-8 flex flex-col gap-4 md:gap-5 overflow-hidden">
+            <span
+              class="absolute top-6 right-8 font-serif text-[28vw] md:text-[10vw] lg:text-[7vw] leading-none text-white/5 select-none pointer-events-none"
+              aria-hidden="true"
+            >
+              0{i + 1}
+            </span>
+            <div class="relative z-10">
+              <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/70 mb-4">
+                <span
+                  class="inline-block w-1.5 h-1.5 rounded-full"
+                  style="background: var(--color-accent);"
+                />
+                Phase 0{i + 1}
+              </p>
+              <h3 class="font-serif text-2xl md:text-3xl font-light leading-tight max-w-md">
+                {point.title}
+              </h3>
+            </div>
+            <p class="relative z-10 text-base md:text-lg text-white/80 leading-relaxed max-w-md">
+              {point.description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div
+      class="mt-10 md:mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-10 p-7 md:p-9 rounded-3xl bg-white border-2 border-[var(--color-accent)]"
+    >
+      <div>
+        <h3 class="font-serif text-2xl md:text-3xl font-light leading-tight uppercase">
+          On s'occupe de tout.
+        </h3>
+        <p class="mt-2 text-sm md:text-base text-[var(--color-muted)]">Du brief au débarras.</p>
+      </div>
+      <a
+        href="#contact"
+        class="group shrink-0 inline-flex items-center gap-4 pl-7 pr-2 py-2 rounded-full text-black font-medium"
+        style="background: var(--color-accent);"
+      >
+        <span>{dict.hero.ctaPrimary}</span>
+        <span
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-black/10 group-hover:bg-black/20 transition-colors"
+          aria-hidden="true">↗</span
+        >
+      </a>
+    </div>
+  </div>
+</section>

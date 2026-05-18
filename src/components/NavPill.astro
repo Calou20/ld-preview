@@ -1,0 +1,138 @@
+---
+import { t } from '../i18n';
+
+const dict = t();
+---
+
+<div
+  id="navpill"
+  class="fixed top-4 md:top-6 inset-x-0 z-50 flex justify-center pointer-events-none"
+>
+  <nav
+    class="pointer-events-auto flex items-center gap-1 md:gap-3 pl-2 pr-3 md:pr-5 py-1.5 md:py-2 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-white shadow-2xl"
+  >
+    <a
+      href="/"
+      class="flex items-center gap-2 pl-2 pr-3 md:pl-3 md:pr-4 py-1 rounded-full hover:bg-white/5 transition-colors"
+      aria-label="LD"
+    >
+      <img src="/images/logo-white.png" alt="LD" class="h-8 md:h-10 w-auto" />
+    </a>
+
+    <div class="hidden md:flex items-center gap-1 text-sm text-white/80">
+      <a href="#services" class="px-3 py-2 rounded-full hover:bg-white/15 hover:text-white transition-all duration-200">{dict.nav.services}</a>
+      <a href="#approach" class="px-3 py-2 rounded-full hover:bg-white/15 hover:text-white transition-all duration-200">{dict.nav.approach}</a>
+      <a href="#bar" class="px-3 py-2 rounded-full hover:bg-white/15 hover:text-white transition-all duration-200">{dict.nav.bar}</a>
+      <a href="#contact" class="px-3 py-2 rounded-full hover:bg-white/15 hover:text-white transition-all duration-200">{dict.nav.contact}</a>
+    </div>
+
+    <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center gap-1.5 px-3 py-2 text-white/80 hover:text-white transition-colors aria-label='Toggle menu'">
+      <span class="w-5 h-px bg-current transition-transform origin-center"></span>
+      <span class="w-5 h-px bg-current transition-transform origin-center"></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-black/95 text-white flex-col items-center justify-center gap-8 pointer-events-auto opacity-0 hidden transition-opacity duration-300 -z-10">
+    <a href="#services" class="mobile-link text-2xl font-serif tracking-widest uppercase hover:text-[var(--color-accent)] transition-colors">{dict.nav.services}</a>
+    <a href="#approach" class="mobile-link text-2xl font-serif tracking-widest uppercase hover:text-[var(--color-accent)] transition-colors">{dict.nav.approach}</a>
+    <a href="#bar" class="mobile-link text-2xl font-serif tracking-widest uppercase hover:text-[var(--color-accent)] transition-colors">{dict.nav.bar}</a>
+    <a href="#contact" class="mobile-link text-2xl font-serif tracking-widest uppercase hover:text-[var(--color-accent)] transition-colors">{dict.nav.contact}</a>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+  const pill = document.getElementById('navpill');
+  if (pill) {
+    if (document.getElementById('preloader')) {
+      gsap.set(pill, { y: -80, opacity: 0 });
+      document.documentElement.addEventListener(
+        'preloader:done',
+        () => {
+          gsap.to(pill, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.2 });
+        },
+        { once: true }
+      );
+    }
+
+    let lastY = window.scrollY;
+    let hidden = false;
+    const threshold = 8;
+    const hero = document.getElementById('hero');
+
+    const onScroll = () => {
+      const y = Math.max(0, window.scrollY);
+      const heroBottom = hero ? hero.offsetHeight : window.innerHeight;
+
+      const isPastLandpage = y > heroBottom - 100;
+
+      if (!isPastLandpage) {
+        if (hidden) {
+          gsap.to(pill, { y: 0, duration: 0.4, ease: 'power3.out' });
+          hidden = false;
+        }
+        lastY = y;
+        return;
+      }
+
+      const delta = y - lastY;
+
+      if (delta > threshold && !hidden) {
+        gsap.to(pill, { y: -120, duration: 0.4, ease: 'power3.out' });
+        hidden = true;
+        lastY = y;
+      } else if (delta < -threshold && hidden) {
+        gsap.to(pill, { y: 0, duration: 0.4, ease: 'power3.out' });
+        hidden = false;
+        lastY = y;
+      } else if (Math.abs(delta) > threshold) {
+        lastY = y;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    const spans = mobileBtn?.querySelectorAll('span');
+
+    if (isMenuOpen) {
+      mobileMenu?.classList.remove('hidden');
+      mobileMenu?.classList.add('flex');
+      void mobileMenu?.offsetWidth;
+      mobileMenu?.classList.remove('opacity-0');
+      mobileMenu?.classList.add('opacity-100');
+
+      if (spans && spans.length === 2) {
+        gsap.to(spans[0], { y: 3.5, rotation: 45, duration: 0.3 });
+        gsap.to(spans[1], { y: -3.5, rotation: -45, duration: 0.3 });
+      }
+    } else {
+      mobileMenu?.classList.remove('opacity-100');
+      mobileMenu?.classList.add('opacity-0');
+
+      setTimeout(() => {
+        mobileMenu?.classList.remove('flex');
+        mobileMenu?.classList.add('hidden');
+      }, 300);
+
+      if (spans && spans.length === 2) {
+        gsap.to(spans[0], { y: 0, rotation: 0, duration: 0.3 });
+        gsap.to(spans[1], { y: 0, rotation: 0, duration: 0.3 });
+      }
+    }
+  }
+
+  mobileBtn?.addEventListener('click', toggleMenu);
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMenuOpen) toggleMenu();
+    });
+  });
+</script>
