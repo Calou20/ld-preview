@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { t } from '../i18n';
 import { url } from '../lib/url';
+import { localBusiness } from '../lib/structured-data';
 import Preloader from '../components/Preloader.astro';
 import SmoothScroll from '../components/SmoothScroll.astro';
 import NavPill from '../components/NavPill.astro';
@@ -16,6 +17,12 @@ const { pageTitle, pageDescription, hidePreloader = false } = Astro.props;
 const dict = t();
 const title = pageTitle ?? dict.meta.title;
 const description = pageDescription ?? dict.meta.description;
+
+const isPreview = process.env.PREVIEW === 'true';
+const PROD_ORIGIN = 'https://lucadauphin.ch';
+const canonicalPath = Astro.url.pathname.replace(/^\/ld-preview/, '') || '/';
+const canonicalUrl = `${PROD_ORIGIN}${canonicalPath}`;
+const ogImageAbs = `${PROD_ORIGIN}/images/logo-black.webp`;
 ---
 
 <!doctype html>
@@ -28,10 +35,26 @@ const description = pageDescription ?? dict.meta.description;
     <link rel="preload" as="image" href={url('/images/verines.webp')} fetchpriority="high" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="LD Traiteur" />
+    <meta name="theme-color" content="#111111" />
+    <meta name="geo.region" content="CH-GE" />
+    <meta name="geo.placename" content="Vernier" />
+    <meta name="geo.position" content="46.2107;6.085" />
+    <meta name="ICBM" content="46.2107, 6.085" />
+    {isPreview && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={url('/images/logo-black.webp')} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="LD Traiteur" />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
